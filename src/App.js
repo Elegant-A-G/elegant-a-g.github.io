@@ -28,14 +28,10 @@ class App extends React.Component {
                         alignItems: 'flex-end',
                         paddingBottom: '1rem'
                     }}>
-                        <a className="social" href="https://www.instagram.com/elegantagllc/" target="_blank"
-                           rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
-                        <a className="social" href="https://www.tiktok.com/@elegant_ag/" target="_blank"
-                           rel="noreferrer"><i className="fa-brands fa-tiktok"></i></a>
-                        <a className="social" href="https://www.linkedin.com/company/89918572" target="_blank"
-                           rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+                        <a className="social" href="https://www.instagram.com/elegantagllc/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
+                        <a className="social" href="https://www.tiktok.com/@elegant_ag/" target="_blank" rel="noreferrer"><i className="fa-brands fa-tiktok"></i></a>
+                        <a className="social" href="https://www.linkedin.com/company/89918572" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
                     </div>
-
                 </div>
             </div>
         )
