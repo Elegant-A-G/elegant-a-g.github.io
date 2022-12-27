@@ -40,7 +40,6 @@ jobs:
         run: |
           npm ci --legacy-peer-drops
           npm run build
-          npm run export
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
