@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+.app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131313;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+    width: 95%;
+    height: 92%;
+    border-radius: 16px;
+    background-color: rgba(30, 30, 30, 0.6);
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+    width: 512px;
+    height: 128px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.section {
+    width: 100%;
+    height: 33%;
+    display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.section-column-center {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.coming-soon {
+    letter-spacing: 0.6rem;
+    background: linear-gradient(180deg, rgb(188, 188, 188) 0%, rgb(216, 216, 216) 42%, rgb(127, 127, 127) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.coming-soon-sub {
+    letter-spacing: 0.4rem;
+    background: linear-gradient(180deg, rgb(188, 188, 188) 0%, rgb(216, 216, 216) 42%, rgb(127, 127, 127) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.social {
+    margin: 8px;
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.35s ease-in-out;
+}
+
+.social:hover {
+    transform: translateY(-8px);
+    color: #dadada;
+}
+
+.content-effect {
+    width: 95%;
+    height: 92%;
+    border-radius: 16px;
+    position: absolute;
+    z-index: 99;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.gradient-effect {
+    width: calc(95% + 12px);
+    height: calc(92% + 12px);
+    border-radius: 16px;
+    position: absolute;
+    z-index: 98;
+    background: linear-gradient(20deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 5s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .logo {
+        width: 256px;
+        height: 64px;
+    }
+
+    .section {
+        width: 90%;
+        height: auto;
+        display: flex;
+    }
+
+    .coming-soon {
+        text-align: center;
+    }
 }
