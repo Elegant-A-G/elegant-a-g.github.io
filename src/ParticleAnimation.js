@@ -130,7 +130,7 @@ class ParticleAnimation extends React.Component {
             antialias: true,
             alpha: true,
             depth: true,
-            precision: 'highp',
+            precision: 'mediump',
             failIfMajorPerformanceCaveat: true
         };
 
