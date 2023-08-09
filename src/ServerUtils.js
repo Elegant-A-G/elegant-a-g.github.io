@@ -1,4 +1,4 @@
-const API_ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://api.elegantag.com' : 'http://localhost:8080';
+const API_ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://api.elegantag.com' : 'http://10.0.0.7:8080';
 
 async function sendGetApiRequest(endpoint) {
     let options = {
