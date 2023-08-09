@@ -177,7 +177,7 @@ const Navbar = () => {
     const [type, setType] = useState('transparent');
 
     const onScroll = () => {
-        if (window.scrollY >= window.innerHeight * 0.5) {
+        if (window.scrollY >= 100) {
             setType('solid');
         } else {
             setType('transparent');
@@ -213,7 +213,7 @@ const Navbar = () => {
                 </div>
 
                 <div className='navbar-link' onClick={() => scrollToSection("contact")}>
-                    <p>Contact Us</p>
+                    <p>Contact</p>
                 </div>
             </div>
         </div>
