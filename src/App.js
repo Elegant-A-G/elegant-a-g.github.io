@@ -92,20 +92,20 @@ const MaterialSection = () => {
 
             <div className="material-item" style={{marginTop: '4rem'}}>
                 <div className="material-content material-content-spacing">
-                    <h2>Anti-Slip Technology</h2>
-
-                    <p>
-                        Built-in anti-slip technology ensures both luxurious comfort and secure footing with our exquisite carpet. Step onto its lavish surface and elevating your space in every step.
-                    </p>
-                </div>
-
-                <div className="material-content">
                     <BlurryLoadingImage
                         className="material-image"
                         preview="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Fanti-slip-tiny.jpg?alt=media"
                         image="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Fanti-slip.jpg?alt=media"
                         alt="material-preview"
                     />
+                </div>
+
+                <div className="material-content">
+                    <h2>Anti-Slip Technology</h2>
+
+                    <p>
+                        Built-in anti-slip technology ensures both luxurious comfort and secure footing with our exquisite carpet. Step onto its lavish surface and elevating your space in every step.
+                    </p>
                 </div>
             </div>
         </div>
