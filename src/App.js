@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {FaInstagram, FaTiktok, FaLinkedin} from "react-icons/fa";
 
 import ParticleAnimation from "./ParticleAnimation";
@@ -21,6 +21,7 @@ class App extends React.Component {
 
         return (
             <div className="app">
+                <Navbar />
                 <HeadingPanel />
 
                 <div className="site-content">
@@ -47,7 +48,7 @@ const HeadingPanel = () => (
 
 const CatalogSection = ({items}) => (
     <>
-        <div className="catalog-header">
+        <div className="catalog-header" id="catalog">
             <p>Catalog</p>
         </div>
 
@@ -68,7 +69,7 @@ const CatalogSection = ({items}) => (
 
 const MaterialSection = () => (
     <>
-        <div className="materials-header">
+        <div className="materials-header" id="materials">
             <p>Materials</p>
         </div>
 
@@ -120,7 +121,7 @@ const Footer = () => {
     }
 
     return (
-        <div className="footer">
+        <div className="footer" id="contact">
             <div className="footer-title">
                 <p>For any questions or inquiries please contact us!</p>
             </div>
@@ -171,5 +172,52 @@ const CatalogItem = ({imagePreview, image, name, description, amazonLink}) => (
         </div>
     </div>
 );
+
+const Navbar = () => {
+    const [type, setType] = useState('transparent');
+
+    const onScroll = () => {
+        if (window.scrollY >= window.innerHeight * 0.5) {
+            setType('solid');
+        } else {
+            setType('transparent');
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+        };
+    }, []);
+
+    const scrollToSection = (section) => {
+        const element = document.querySelector( '#' + section );
+        element.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+    };
+
+    return (
+        <div className={`navbar ${type === 'solid' ? 'navbar-solid' : 'navbar-transparent'}`}>
+            <div className='navbar-left'>
+                <img src="/assets/images/logo.png" className="navbar-logo" alt="" />
+                <h2 className='navbar-title'>Elegant A&G</h2>
+            </div>
+
+            <div className='navbar-right'>
+                <div className='navbar-link' onClick={() => scrollToSection("catalog")}>
+                    <p>Catalog</p>
+                </div>
+
+                <div className='navbar-link' onClick={() => scrollToSection("materials")}>
+                    <p>Materials</p>
+                </div>
+
+                <div className='navbar-link' onClick={() => scrollToSection("contact")}>
+                    <p>Contact Us</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default App;

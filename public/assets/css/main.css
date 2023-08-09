@@ -5,7 +5,6 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
-    overflow: hidden;
     -webkit-font-smoothing: antialiased;
     font-family: 'Tinos', sans-serif;
 }
@@ -13,5 +12,4 @@ body {
 #root {
     width: 100%;
     height: 100%;
-    overflow-y: auto;
 }
