@@ -123,6 +123,10 @@ class ParticleAnimation extends React.Component {
             renderer.setSize(size.width, size.height);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.windowResizedEvent);
+    }
+
     componentDidMount() {
         window.addEventListener('resize', this.windowResizedEvent);
 
@@ -146,26 +150,29 @@ class ParticleAnimation extends React.Component {
 
             scene.fog = new THREE.Fog(0x24282F, 1, 5000);
             renderer.setSize(size.width, size.height);
-            this.threeMount.appendChild(renderer.domElement);
 
-            camera.position.set(366, 300, 0);
-            camera.rotation.set(-1.570, 1.08, 1.570);
-            camera.lookAt(scene.position);
+            if (this.threeMount && !this.threeMount.firstChild) {
+                this.threeMount.appendChild(renderer.domElement);
 
-            points.rotateY(0.5)
-            scene.add(points);
+                camera.position.set(366, 300, 0);
+                camera.rotation.set(-1.570, 1.08, 1.570);
+                camera.lookAt(scene.position);
 
-            const timer = new THREE.Clock();
-            const renderThreeJS = () => {
-                requestAnimationFrame(renderThreeJS);
-                const {count} = this.state;
-                shader.uniforms.time.value = count;
-                shader.uniforms.elapsedTime.value = timer.getElapsedTime();
-                renderer.render(scene, camera);
-                this.setState({count: count + 0.06});
+                points.rotateY(0.5)
+                scene.add(points);
+
+                const timer = new THREE.Clock();
+                const renderThreeJS = () => {
+                    requestAnimationFrame(renderThreeJS);
+                    const {count} = this.state;
+                    shader.uniforms.time.value = count;
+                    shader.uniforms.elapsedTime.value = timer.getElapsedTime();
+                    renderer.render(scene, camera);
+                    this.setState({count: count + 0.06});
+                }
+
+                renderThreeJS();
             }
-
-            renderThreeJS();
         });
     }
 

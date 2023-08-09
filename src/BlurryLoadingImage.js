@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-const BlurryLoadingImage = ({preview, image, alt, className, bgColor = 'transparent'}) => {
+const BlurryLoadingImage = ({preview, image, className}) => {
     const [currentImage, setCurrentImage] = useState(preview);
     const [loading, setLoading] = useState(true);
 
@@ -22,11 +22,9 @@ const BlurryLoadingImage = ({preview, image, alt, className, bgColor = 'transpar
             style={{
                 filter: `${loading ? 'blur(20px)' : ''}`,
                 transition: '1s filter linear',
-                width: '100%',
-                background: bgColor,
             }}
             src={currentImage.toString()}
-            alt={alt}
+            alt=""
             className={className}
         />
     );

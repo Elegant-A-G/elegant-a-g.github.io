@@ -1,8 +1,9 @@
 import React from "react";
-import ParticleAnimation from "./ParticleAnimation";
-import {getCatalog} from "./ServerUtils";
 import {FaInstagram, FaTiktok, FaLinkedin} from "react-icons/fa";
+
+import ParticleAnimation from "./ParticleAnimation";
 import BlurryLoadingImage from "./BlurryLoadingImage";
+import {getCatalog} from "./ServerUtils";
 import './App.css';
 
 class App extends React.Component {
@@ -23,10 +24,6 @@ class App extends React.Component {
                 <HeadingPanel />
 
                 <div className="site-content">
-                    <div className="catalog-title">
-                        <p>Catalog</p>
-                    </div>
-
                     <CatalogSection items={catalogItems} />
                     <MaterialSection />
                 </div>
@@ -49,75 +46,76 @@ const HeadingPanel = () => (
 );
 
 const CatalogSection = ({items}) => (
-    <div className="catalog">
-        {items.map(value =>
-            <CatalogItem
-                key={value.id}
-                imagePreview={value.imagePreview}
-                image={value.image}
-                name={value.name}
-                amazonLink={value.amazonLink}
-                description={value.description}
-            />
-        )}
-    </div>
+    <>
+        <div className="catalog-header">
+            <p>Catalog</p>
+        </div>
+
+        <div className="catalog">
+            {items.map(value =>
+                <CatalogItem
+                    key={value.id}
+                    imagePreview={value.imagePreview}
+                    image={value.image}
+                    name={value.name}
+                    amazonLink={value.amazonLink}
+                    description={value.description}
+                />
+            )}
+        </div>
+    </>
 );
 
-const MaterialSection = () => {
+const MaterialSection = () => (
+    <>
+        <div className="materials-header">
+            <p>Materials</p>
+        </div>
 
-    return (
-        <div className="materials">
-            <div className="materials-header">
-                <p>Materials</p>
+        <div className="material-item">
+            <div className="material-content material-content-spacing">
+                <BlurryLoadingImage
+                    className="material-image"
+                    preview="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Frayon-material-tiny.jpg?alt=media"
+                    image="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Frayon-material.jpg?alt=media"
+                />
             </div>
 
-            <div className="material-item">
-                <div className="material-content material-content-spacing">
-                    <BlurryLoadingImage
-                        className="material-image"
-                        preview="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Frayon-material-tiny.jpg?alt=media"
-                        image="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Frayon-material.jpg?alt=media"
-                        alt="material-preview"
-                    />
-                </div>
+            <div className="material-content">
+                <h2>Rayon Material</h2>
 
-                <div className="material-content">
-                    <h2>Rayon Material</h2>
-
-                    <p>
-                        Introducing elegance with our meticulously crafted 10mm Rayon material, designed to elevate your space with both comfort and style. Not only does it provide an irresistibly cozy experience, but its easy-to-clean nature ensures lasting beauty, making it an appealing choice for those who appreciate both elegance and convenience.
-                    </p>
-                </div>
-            </div>
-
-            <div className="material-item" style={{marginTop: '4rem'}}>
-                <div className="material-content material-content-spacing">
-                    <BlurryLoadingImage
-                        className="material-image"
-                        preview="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Fanti-slip-tiny.jpg?alt=media"
-                        image="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Fanti-slip.jpg?alt=media"
-                        alt="material-preview"
-                    />
-                </div>
-
-                <div className="material-content">
-                    <h2>Anti-Slip Technology</h2>
-
-                    <p>
-                        Built-in anti-slip technology ensures both luxurious comfort and secure footing with our exquisite carpet. Step onto its lavish surface and elevating your space in every step.
-                    </p>
-                </div>
+                <p>
+                    Introducing elegance with our meticulously crafted 10mm Rayon material, designed to elevate your space with both comfort and style. Not only does it provide an irresistibly cozy experience, but its easy-to-clean nature ensures lasting beauty, making it an appealing choice for those who appreciate both elegance and convenience.
+                </p>
             </div>
         </div>
-    );
-};
+
+        <div className="material-item" style={{marginTop: '4rem'}}>
+            <div className="material-content material-content-spacing">
+                <BlurryLoadingImage
+                    className="material-image"
+                    preview="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Fanti-slip-tiny.jpg?alt=media"
+                    image="https://firebasestorage.googleapis.com/v0/b/elegant-ag.appspot.com/o/material%2Fanti-slip.jpg?alt=media"
+                />
+            </div>
+
+            <div className="material-content">
+                <h2>Anti-Slip Technology</h2>
+
+                <p>
+                    Built-in anti-slip technology ensures both luxurious comfort and secure footing with our exquisite carpet. Step onto its lavish surface and elevating your space in every step.
+                </p>
+            </div>
+        </div>
+    </>
+);
 
 const Footer = () => {
     const currentYear = new Date().getFullYear()
     let dateString;
     if (currentYear === 2022) {
         dateString = "2022"
-    }else {
+    } else {
         dateString = "2022 - " + currentYear;
     }
 
@@ -150,8 +148,7 @@ const Footer = () => {
 
 const CatalogItem = ({imagePreview, image, name, description, amazonLink}) => (
     <div className="catalog-item">
-        {/*<img className="catalog-item-image" src={image} alt={name + "-preview"} />*/}
-        <BlurryLoadingImage className="catalog-item-image" preview={imagePreview} image={image} alt={name + "-preview"} />
+        <BlurryLoadingImage className="catalog-item-image" preview={imagePreview} image={image} />
 
         <div className="catalog-item-content">
             <div>
