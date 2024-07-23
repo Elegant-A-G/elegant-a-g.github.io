@@ -166,7 +166,7 @@ const CatalogItem = ({imagePreview, image, name, description, amazonLink}) => (
                 <button className="buy-button" onClick={e => {
                     window.open(amazonLink, "_blank");
                 }}>
-                    Buy On Amazon
+                    Buy on Ebay
                 </button>
             </div>
         </div>
